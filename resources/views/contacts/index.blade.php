@@ -6,6 +6,17 @@
     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#ajouterContact">
         Ajouter un contact
     </button>
+
+    <form action="{{ route('contacts.index') }}" method="GET" class="mb-3" style="height: 45px">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" placeholder="Rechercher un contact"
+                value="{{ request()->get('search') }}" style="height: 45px;">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search"></i> Rechercher
+            </button>
+        </div>
+    </form>
+
     <div class="card">
         <h5 class="card-header">Carnet Adresses</h5>
         <div class="table-responsive text-nowrap">
@@ -121,7 +132,7 @@
         </div>
     @endforeach
 
-  {{-- Modal Supprimer un contact --}}
+    {{-- Modal Supprimer un contact --}}
     @foreach ($contacts as $contact)
         <div class="modal fade" id="confirmerSuppressionModal{{ $contact->id }}" tabindex="-1" role="dialog"
             aria-labelledby="confirmerSuppressionModalLabel" aria-hidden="true">

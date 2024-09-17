@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 
 class WebContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::all();
+        $search = $request->get('search');
+
+        if ($search) {
+            $contacts = Contact::where('nom', 'LIKE', "%$search%")
+                ->orWhere('telephone', 'LIKE', "%$search%")
+                ->orWhere('email', 'LIKE', "%$search%")
+                ->get();
+        } else {
+            $contacts = Contact::all();
+        }
+
         return view('contacts.index', compact('contacts'));
     }
 

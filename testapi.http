@@ -1,0 +1,29 @@
+
+### GET METHODE
+GET http://127.0.0.1:8000/api/contacts
+
+### POST METHODE
+
+POST http://127.0.0.1:8000/api/contacts
+Content-Type: application/json
+
+{
+    "nom": "moahemd",
+    "telephone": "0691056828",
+    "email": "mohamed.badour@gmail.com"
+}
+
+### PUT METHODE
+
+PUT http://127.0.0.1:8000/api/contacts/1
+Content-Type: application/json
+
+{
+    "nom": "achraf hakimi",
+    "telephone": "0611224466",
+    "email": "haimi.achraf@gmail.com"
+}
+
+### DELETE METHODE
+
+DELETE http://127.0.0.1:8000/api/contacts/1
